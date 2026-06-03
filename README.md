@@ -1,5 +1,8 @@
 # AI Incident Response Assistant
 
+![CI Pipeline](https://github.com/bagcibaris/ai-incident-assistant/actions/workflows/ci.yml/badge.svg)
+
+
 AI Incident Response Assistant is a machine learning powered REST API that analyzes system log messages and predicts the most likely incident layer. It also provides estimated severity, probable cause, and suggested remediation actions.
 
 This project demonstrates AI, backend API development, incident response logic, and Dockerized deployment.
