@@ -1,0 +1,71 @@
+timestamp,layer,error_type,severity,description,probable_cause,suggested_action
+2026-06-03 14:00:01,Application Layer,Null Pointer Exception,High,Application crashed while accessing user profile object,User object returned null from service layer,Add null checks and validate service response
+2026-06-03 14:00:15,Application Layer,Validation Error,Medium,Required field email is missing in request body,Client sent incomplete request payload,Validate request body before processing
+2026-06-03 14:00:30,Application Layer,Runtime Exception,High,Unhandled runtime exception occurred during order creation,Unexpected application state or missing business rule,Check stack trace and add exception handling
+2026-06-03 14:00:45,Application Layer,Business Logic Error,Medium,Order total calculation returned negative value,Discount calculation logic is incorrect,Review pricing and discount calculation rules
+2026-06-03 14:01:00,Application Layer,Serialization Error,Medium,Failed to serialize response object to JSON,Circular reference or unsupported object type,Fix DTO mapping and serialization configuration
+2026-06-03 14:01:15,Application Layer,Deserialization Error,Medium,Invalid JSON format received in request payload,Malformed client request body,Return proper validation response to client
+2026-06-03 14:01:30,Application Layer,Authentication Failed,High,Invalid JWT token signature detected,Expired or tampered authentication token,Reject request and force user re-authentication
+2026-06-03 14:01:45,Application Layer,Authorization Error,High,User attempted to access restricted admin endpoint,User role does not have required permission,Check role-based access control rules
+2026-06-03 14:02:00,Application Layer,Rate Limit Exceeded,Medium,Too many requests received from same IP address,Client or bot is sending excessive requests,Throttle requests and monitor IP activity
+2026-06-03 14:02:15,Application Layer,Background Job Error,Medium,Scheduled email notification job failed unexpectedly,Queue worker crashed or email provider unavailable,Restart worker and inspect job failure logs
+2026-06-03 14:03:01,Database Layer,Database Connection Timeout,High,Application failed to connect to PostgreSQL within 30 seconds,Database server overloaded or unreachable,Check database health and connection pool settings
+2026-06-03 14:03:15,Database Layer,Deadlock Detected,High,Transaction was aborted due to deadlock between two queries,Concurrent updates locked same database rows,Review transaction order and locking strategy
+2026-06-03 14:03:30,Database Layer,Slow Query,Medium,Product search query took 12 seconds to complete,Missing index or inefficient query plan,Analyze query plan and add proper indexes
+2026-06-03 14:03:45,Database Layer,Duplicate Key Error,Medium,Insert failed because email already exists in users table,Unique constraint violation,Check duplicate records before insert operation
+2026-06-03 14:04:00,Database Layer,Connection Pool Exhausted,High,No available database connections in connection pool,Too many active requests or connections not released,Increase pool size and close unused connections
+2026-06-03 14:04:15,Database Layer,Transaction Rollback,Medium,Payment transaction rolled back unexpectedly,One operation inside transaction failed,Inspect failed query and improve transaction handling
+2026-06-03 14:04:30,Database Layer,Foreign Key Constraint Error,Medium,Cannot delete user because related orders exist,Referenced child records prevent deletion,Use cascade rules or soft delete strategy
+2026-06-03 14:04:45,Database Layer,Database Disk Full,Critical,Database cannot write new records because disk is full,Database storage volume reached capacity,Free disk space or increase storage volume
+2026-06-03 14:05:00,Database Layer,Migration Failed,High,Database migration failed while adding new column,Schema change conflict or invalid migration script,Rollback migration and fix schema script
+2026-06-03 14:05:15,Database Layer,Replication Lag,Medium,Read replica is 45 seconds behind primary database,High write load or network delay between replicas,Monitor replication and reduce replica dependency
+2026-06-03 14:06:01,Network Layer,DNS Resolution Failed,High,Service could not resolve api.payment-provider.com,DNS server unavailable or wrong domain configuration,Check DNS configuration and provider status
+2026-06-03 14:06:15,Network Layer,Connection Refused,High,Application failed to connect to internal auth service,Target service is down or port is closed,Verify service status and exposed ports
+2026-06-03 14:06:30,Network Layer,Gateway Timeout,High,Request failed with 504 Gateway Timeout,Upstream service did not respond in time,Check upstream latency and timeout configuration
+2026-06-03 14:06:45,Network Layer,Packet Loss,Medium,High packet loss detected between application and database server,Network instability or overloaded route,Inspect network path and infrastructure metrics
+2026-06-03 14:07:00,Network Layer,TLS Handshake Failed,High,Secure connection failed during TLS handshake,Expired certificate or protocol mismatch,Renew certificate and verify TLS settings
+2026-06-03 14:07:15,Network Layer,Connection Reset,Medium,Connection was reset by peer during API request,Remote service closed connection unexpectedly,Retry request and inspect remote service logs
+2026-06-03 14:07:30,Network Layer,High Latency,Medium,Average API response latency increased above 2000ms,Network congestion or slow upstream dependency,Monitor latency and check upstream services
+2026-06-03 14:07:45,Network Layer,Load Balancer Error,High,Load balancer returned 502 Bad Gateway,Backend target is unhealthy or unreachable,Check target health and load balancer configuration
+2026-06-03 14:08:00,Network Layer,Port Unreachable,High,Application cannot reach service on port 6379,Firewall rule or service port misconfiguration,Verify firewall rules and service binding
+2026-06-03 14:08:15,Network Layer,Webhook Delivery Timeout,Medium,Webhook delivery to client endpoint timed out,Client endpoint is slow or unavailable,Retry webhook and notify client about timeout
+2026-06-03 14:09:01,Infrastructure Layer,Disk Full,Critical,Server disk usage reached 99 percent,Logs or database files consumed storage,Clean old logs and expand disk capacity
+2026-06-03 14:09:15,Infrastructure Layer,High CPU Usage,High,CPU usage stayed above 95 percent for 10 minutes,Heavy traffic or inefficient process consuming CPU,Identify top processes and scale service
+2026-06-03 14:09:30,Infrastructure Layer,Out of Memory,Critical,Operating system killed application process due to memory exhaustion,Memory leak or insufficient RAM,Analyze memory usage and increase memory limit
+2026-06-03 14:09:45,Infrastructure Layer,File Permission Denied,Medium,Application failed to write uploaded file to storage directory,Incorrect file or folder permissions,Fix ownership and write permissions
+2026-06-03 14:10:00,Infrastructure Layer,Container Restart Loop,High,Docker container restarted repeatedly within short period,Application crash or invalid container configuration,Inspect container logs and health checks
+2026-06-03 14:10:15,Infrastructure Layer,Node Not Ready,High,Kubernetes node entered NotReady state,Node resource pressure or kubelet failure,Check node health and kubelet logs
+2026-06-03 14:10:30,Infrastructure Layer,Health Check Failed,High,Service failed readiness probe three times,Application is not ready to receive traffic,Inspect readiness endpoint and startup process
+2026-06-03 14:10:45,Infrastructure Layer,Log Rotation Failed,Medium,Log files continued growing without rotation,Logrotate misconfiguration or missing cron job,Fix log rotation policy
+2026-06-03 14:11:00,Infrastructure Layer,Service Crash,High,Systemd service stopped unexpectedly with exit code 1,Application runtime error or missing environment variable,Check service logs and environment config
+2026-06-03 14:11:15,Infrastructure Layer,Backup Failed,High,Daily server backup failed due to storage error,Backup destination unavailable or full,Verify backup storage and rerun backup job
+2026-06-03 14:12:01,Security Layer,Unauthorized Access,High,User attempted to access admin panel without permission,Privilege escalation attempt or wrong role assignment,Block request and audit user permissions
+2026-06-03 14:12:15,Security Layer,Invalid JWT Token,High,Request contained expired or invalid JWT token,Token expired or token was modified,Reject request and require login again
+2026-06-03 14:12:30,Security Layer,Brute Force Attempt,Critical,Multiple failed login attempts detected from same IP address,Automated password guessing attack,Temporarily block IP and enable rate limiting
+2026-06-03 14:12:45,Security Layer,Suspicious IP Activity,High,Unusual request pattern detected from foreign IP address,Possible bot or malicious scanner,Flag IP and monitor request behavior
+2026-06-03 14:13:00,Security Layer,SQL Injection Attempt,Critical,Request contained suspicious SQL keywords in input field,Malicious user attempted SQL injection,Sanitize input and block request
+2026-06-03 14:13:15,Security Layer,XSS Attempt,High,Request payload contained script tag in comment field,Malicious user attempted cross-site scripting,Escape user input and reject payload
+2026-06-03 14:13:30,Security Layer,CSRF Token Missing,Medium,POST request rejected because CSRF token was missing,Client did not include CSRF protection token,Require valid CSRF token for state-changing requests
+2026-06-03 14:13:45,Security Layer,Privilege Escalation Attempt,Critical,Normal user tried to modify admin-only resource,User attempted unauthorized privilege escalation,Block action and trigger security alert
+2026-06-03 14:14:00,Security Layer,API Key Leak,High,API key was detected in public request logs,Secret key exposed accidentally,Rotate API key and remove secret from logs
+2026-06-03 14:14:15,Security Layer,Malware Upload Attempt,Critical,Uploaded file matched known malware signature,User attempted to upload malicious file,Reject file and quarantine upload
+2026-06-03 14:15:01,Cache Layer,Redis Connection Failed,High,Application failed to connect to Redis cache server,Redis service down or network issue,Check Redis status and connection settings
+2026-06-03 14:15:15,Cache Layer,Cache Miss Spike,Medium,Cache miss rate increased above 80 percent,Cache keys expired or invalidation issue occurred,Review cache TTL and invalidation policy
+2026-06-03 14:15:30,Cache Layer,Stale Cache Data,Medium,Users received outdated product price from cache,Cache was not invalidated after database update,Invalidate cache after write operations
+2026-06-03 14:15:45,Cache Layer,Cache Invalidation Failed,High,Cache invalidation job failed after product update,Background worker error or Redis command failure,Retry invalidation and inspect worker logs
+2026-06-03 14:16:00,Cache Layer,Redis Memory Full,High,Redis rejected new keys because memory limit was reached,Cache size exceeded maxmemory configuration,Increase memory or adjust eviction policy
+2026-06-03 14:16:15,Cache Layer,Cache Stampede,High,Many requests rebuilt same expired cache key simultaneously,Popular cache key expired under high traffic,Use locking or stale-while-revalidate strategy
+2026-06-03 14:16:30,Cache Layer,Serialization Error,Medium,Failed to deserialize cached session object,Application version changed cached object format,Clear incompatible cache entries
+2026-06-03 14:16:45,Cache Layer,Redis Timeout,High,Redis command timed out after 5 seconds,Redis overloaded or network latency increased,Check Redis latency and command usage
+2026-06-03 14:17:00,Cache Layer,Wrong Cache Key,Medium,User received another user's cached profile data,Cache key missing user-specific identifier,Fix cache key generation strategy
+2026-06-03 14:17:15,Cache Layer,Session Cache Lost,High,User sessions disappeared after Redis restart,Redis persistence disabled or cache restart occurred,Enable persistence or use durable session storage
+2026-06-03 14:18:01,External Service Layer,Payment API Timeout,High,Payment provider did not respond within timeout period,External payment service is slow or unavailable,Retry request and check provider status page
+2026-06-03 14:18:15,External Service Layer,Email Service Failed,Medium,Password reset email could not be sent,SMTP provider rejected request or service is down,Check email provider logs and retry sending
+2026-06-03 14:18:30,External Service Layer,Third-party API 502,High,External shipping API returned 502 Bad Gateway,Third-party provider backend failure,Fallback to retry queue and notify operations team
+2026-06-03 14:18:45,External Service Layer,Webhook Delivery Failed,Medium,Webhook delivery failed after three retry attempts,Receiver endpoint unavailable or returned error,Store failed webhook and retry later
+2026-06-03 14:19:00,External Service Layer,Rate Limit From Provider,Medium,External API returned 429 Too Many Requests,Application exceeded provider request quota,Backoff requests and review API usage limits
+2026-06-03 14:19:15,External Service Layer,Invalid API Credentials,High,External service rejected request due to invalid credentials,API key expired or wrong secret configured,Rotate credentials and update environment variables
+2026-06-03 14:19:30,External Service Layer,Unexpected Response Format,Medium,Third-party API returned response schema different than expected,Provider changed API response structure,Update integration parser and add schema validation
+2026-06-03 14:19:45,External Service Layer,File Storage Upload Failed,High,Upload to cloud storage failed during invoice generation,Cloud storage service unavailable or permission issue,Check storage permissions and retry upload
+2026-06-03 14:20:00,External Service Layer,SMS Provider Failure,Medium,Verification SMS could not be delivered,SMS gateway rejected or delayed message,Retry SMS or use alternative provider
+2026-06-03 14:20:15,External Service Layer,OAuth Provider Error,High,Google OAuth login failed with invalid callback response,OAuth provider issue or callback URL mismatch,Verify OAuth configuration and callback URL
